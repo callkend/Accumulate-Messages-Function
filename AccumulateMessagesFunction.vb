@@ -2,6 +2,7 @@
 'RCET0265
 'Spring 2021
 'Accumulate Messages Function
+'https://github.com/callkend/Accumulate-Messages-Function.git
 
 Option Explicit On
 Option Strict On
