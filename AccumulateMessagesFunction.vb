@@ -10,23 +10,28 @@ Module AccumulateMessagesFunction
     Sub Main()
         Dim userInput As String
         Dim storedMessages As String
+        Dim run As Boolean = True
 
         'loops a call to the userMessages function to store userInput
-        Console.WriteLine("Write a Message to store or write clear to clear stored messages")
-        For i = 0 To 5
+        Console.WriteLine("Write a Message to store or write clear to clear stored messages." _
+                          + vbNewLine + "Write quit to exit program." + vbNewLine +
+                          "Write return to read stored messages.")
+        Do While run = True
             userInput = Console.ReadLine()
-            If userInput = "clear" Then
-                storedMessages = UserMessages(userInput, True)
-            Else
-                storedMessages = UserMessages(userInput + vbNewLine, False)
-            End If
+            Select Case (userInput)
+                Case = "clear"
+                    storedMessages = UserMessages(userInput, True)
+                Case = "quit"
+                    run = False
+                Case = "return"
+                    'Writes the stored messages
+                    Console.WriteLine(vbNewLine + "Your stored messages are")
+                    Console.WriteLine(storedMessages)
+                Case Else
+                    storedMessages = UserMessages(userInput + vbNewLine, False)
+            End Select
+        Loop
 
-        Next
-
-        'Writes the stored messages
-        Console.WriteLine(vbNewLine + "Your stored messages are")
-        Console.WriteLine(storedMessages)
-        Console.ReadLine()
     End Sub
 
     Function UserMessages(ByVal newMessage As String, ByVal clear As Boolean) As String
